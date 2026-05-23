@@ -1,0 +1,55 @@
+:root {
+  // Colors
+  --color-accent: #2f7d5b;
+  --color-accent-hover: #256349;
+  --color-bg: #f5f3ee;
+  --color-surface: #ffffff;
+  --color-fill: #ebe8e2;
+  --color-border: #d9d4cb;
+  --color-border-dashed: #b9b3a8;
+  --color-text-primary: #1a1815;
+  --color-text-secondary: #6b6660;
+  --color-text-muted: #a8a39c;
+  --color-error: #c0392b;
+  --color-error-bg: #fdf0ee;
+
+  // Typography — body uses system sans, display/brand uses Caveat
+  --font-display: 'Caveat', cursive;
+  --font-body: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --text-xs: 10px;
+  --text-sm: 12px;
+  --text-base: 13px;
+  --text-md: 15px;
+  --text-lg: 22px;
+  --text-xl: 28px;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --leading-tight: 1.15;
+  --leading-normal: 1.5;
+
+  // Spacing
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 18px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  // Shape
+  --radius-input: 8px;
+  --radius-btn: 8px;
+  --radius-card: 14px;
+
+  // Z-index
+  --z-overlay: 100;
+  --z-modal: 200;
+}

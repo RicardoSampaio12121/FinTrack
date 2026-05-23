@@ -1,0 +1,38 @@
+# .NET
+**/bin/
+**/obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.DotSettings.user
+
+# Angular / Node
+FE/node_modules/
+FE/.angular/
+FE/dist/
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment / secrets
+*.env
+appsettings.Development.json
+
+# Claude Code
+.claude/
+FE/src/environments/environment.prod.ts
+FE/src/environments/environment.ts
+BE/src/FinTrack.API/Properties/launchSettings.json
+BE/docker-compose.yml
+BE/src/FinTrack.API/appsettings.json
+BE/docker/loki-config.yaml
+BE/docker/grafana/provisioning/datasources/loki.yaml

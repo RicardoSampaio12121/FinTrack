@@ -1,0 +1,74 @@
+<div class="auth-layout">
+
+  <!-- B · Desktop — brand panel -->
+  <div class="auth-brand">
+    <div class="auth-brand__top app-logo-wrap">
+      <app-logo />
+    </div>
+    <div class="auth-brand__middle">
+      <p class="auth-brand__headline">Every dollar, where you want it.</p>
+      <p class="auth-brand__sub">Set goals, watch spending, and get gentle nudges along the way.</p>
+    </div>
+    <div class="auth-brand__illustration">chart / hero illustration</div>
+  </div>
+
+  <!-- Form panel -->
+  <div class="auth-form-panel">
+    <div class="auth-card">
+
+      <!-- A · Mobile — logo + centered header inside card -->
+      <div class="auth-card__logo">
+        <app-logo size="lg" />
+        <div class="auth-card__header">
+          <div class="auth-card__title">Start tracking, free</div>
+          <div class="auth-card__subtitle">Takes less than a minute</div>
+        </div>
+      </div>
+
+      <!-- B · Desktop — plain header -->
+      <div class="auth-card__header register__desktop-header">
+        <div class="auth-card__title">Create account</div>
+        <div class="auth-card__subtitle">Free forever · no card needed</div>
+      </div>
+
+      <form class="auth-form" [formGroup]="form" (ngSubmit)="submit()">
+        @if (serverError()) {
+          <div class="auth-server-error">{{ serverError() }}</div>
+        }
+
+        <app-google-button />
+        <app-divider />
+
+        <app-form-field label="Name" [error]="displayNameError">
+          <input type="text" formControlName="displayName" placeholder="Alex Rivera" autocomplete="name" />
+        </app-form-field>
+
+        <app-form-field label="Email" [error]="emailError">
+          <input type="email" formControlName="email" placeholder="you@example.com" autocomplete="email" />
+        </app-form-field>
+
+        <app-form-field label="Password" [error]="passwordError">
+          <input type="password" formControlName="password" placeholder="••••••••" autocomplete="new-password" />
+        </app-form-field>
+
+        <app-form-field label="Confirm password" [error]="confirmPasswordError">
+          <input type="password" formControlName="confirmPassword" placeholder="••••••••" autocomplete="new-password" />
+        </app-form-field>
+
+        <label class="auth-form__legal">
+          <input type="checkbox" formControlName="agreeTerms" />
+          <span>I agree to the <a>Terms</a> &amp; <a>Privacy Policy</a></span>
+        </label>
+
+        <div class="auth-form__actions">
+          <app-button type="submit" [loading]="loading()">Create account</app-button>
+        </div>
+
+        <div class="auth-form__footer">
+          Have an account? <a routerLink="/auth/login">Sign in</a>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

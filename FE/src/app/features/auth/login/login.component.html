@@ -1,0 +1,69 @@
+<div class="auth-layout">
+
+  <!-- B · Desktop — brand panel (hidden on mobile) -->
+  <div class="auth-brand">
+    <div class="auth-brand__top app-logo-wrap">
+      <app-logo />
+    </div>
+    <div class="auth-brand__middle">
+      <p class="auth-brand__headline">Pick up right where you left off.</p>
+      <p class="auth-brand__sub">Your dashboard, goals and recent expenses are ready.</p>
+    </div>
+    <div class="auth-brand__illustration">chart / hero illustration</div>
+  </div>
+
+  <!-- Form panel -->
+  <div class="auth-form-panel">
+    <div class="auth-card">
+
+      <!-- A · Mobile — logo + centered header inside card -->
+      <div class="auth-card__logo">
+        <app-logo size="lg" />
+        <div class="auth-card__header">
+          <div class="auth-card__title">Welcome back</div>
+          <div class="auth-card__subtitle">Sign in to keep tracking</div>
+        </div>
+      </div>
+
+      <!-- B · Desktop — plain header (no logo) -->
+      <div class="auth-card__header login__desktop-header">
+        <div class="auth-card__title">Sign in</div>
+        <div class="auth-card__subtitle">Welcome back to FinTrack</div>
+      </div>
+
+      <form class="auth-form" [formGroup]="form" (ngSubmit)="submit()">
+        @if (serverError()) {
+          <div class="auth-server-error">{{ serverError() }}</div>
+        }
+
+        <app-google-button />
+        <app-divider />
+
+        <app-form-field label="Email" [error]="emailError">
+          <input type="email" formControlName="email" placeholder="you@example.com" autocomplete="email" />
+        </app-form-field>
+
+        <app-form-field label="Password" [error]="passwordError">
+          <input type="password" formControlName="password" placeholder="••••••••" autocomplete="current-password" />
+        </app-form-field>
+
+        <div class="auth-form__row">
+          <label class="auth-form__check">
+            <input type="checkbox" formControlName="rememberMe" />
+            Remember me
+          </label>
+          <a class="auth-form__link" routerLink="/auth/forgot-password">Forgot password?</a>
+        </div>
+
+        <div class="auth-form__actions">
+          <app-button type="submit" [loading]="loading()">Sign in</app-button>
+        </div>
+
+        <div class="auth-form__footer">
+          New here? <a routerLink="/auth/register">Create an account</a>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

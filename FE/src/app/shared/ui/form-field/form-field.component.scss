@@ -1,0 +1,50 @@
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+
+  &__label {
+    font-size: 11px;
+    font-weight: var(--weight-medium);
+    color: var(--color-text-secondary);
+    letter-spacing: 0.01em;
+  }
+
+  &__input-wrap {
+    ::ng-deep input {
+      width: 100%;
+      height: 40px;
+      padding: 0 var(--space-3);
+      background: var(--color-surface);
+      border: 1.5px dashed var(--color-border-dashed);
+      border-radius: var(--radius-input);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-text-primary);
+      outline: none;
+      transition: border-color 0.15s ease, border-style 0.15s ease;
+
+      &::placeholder {
+        color: var(--color-text-muted);
+      }
+
+      &:focus {
+        border-style: solid;
+        border-color: var(--color-accent);
+      }
+    }
+  }
+
+  &__error {
+    font-size: var(--text-xs);
+    color: var(--color-error);
+    font-family: var(--font-mono);
+  }
+
+  &.has-error {
+    .form-field__input-wrap ::ng-deep input {
+      border-style: solid;
+      border-color: var(--color-error);
+    }
+  }
+}

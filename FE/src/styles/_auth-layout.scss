@@ -1,0 +1,279 @@
+// Auth pages layout
+// A · Mobile (< 768px): full-screen bg, centered card with Logo inside
+// B · Desktop (≥ 768px): 2-column — accent brand panel left, form panel right
+
+.auth-layout {
+  min-height: 100dvh;
+  background: var(--color-bg);
+
+  // Mobile: center the card
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    align-items: stretch;
+    justify-content: stretch;
+  }
+}
+
+// ── Brand panel (B · desktop left) ───────────────────────────────────
+.auth-brand {
+  // Hidden on mobile — card has its own logo
+  display: none;
+
+  @media (min-width: 768px) {
+    display: flex;
+    flex: 0 0 42%;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--space-10);
+    background: var(--color-accent);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__top {
+    // Logo lives here on desktop
+  }
+
+  &__middle {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  &__headline {
+    font-family: var(--font-body);
+    font-size: var(--text-xl);
+    font-weight: var(--weight-semibold);
+    line-height: var(--leading-tight);
+    letter-spacing: -0.02em;
+    color: #fff;
+    max-width: 90%;
+  }
+
+  &__sub {
+    font-size: var(--text-base);
+    color: rgba(255, 255, 255, 0.75);
+    line-height: var(--leading-normal);
+    max-width: 90%;
+  }
+
+  &__illustration {
+    height: 160px;
+    border: 1.5px dashed rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-input);
+    background: rgba(255, 255, 255, 0.06);
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.06) 0 8px,
+      transparent 8px 16px
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+  }
+}
+
+// Logo inside brand panel (desktop) — white version
+.auth-brand .app-logo-wrap {
+  // The logo component inside the brand panel needs white text
+  .logo__name { color: #fff; }
+  .logo__avatar { background: rgba(255, 255, 255, 0.2); color: #fff; }
+}
+
+// ── Form panel ────────────────────────────────────────────────────────
+.auth-form-panel {
+  // Mobile: full width (auth-layout is already centering)
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    flex: 1;
+    padding: var(--space-10);
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+// ── Card ─────────────────────────────────────────────────────────────
+.auth-card {
+  width: 100%;
+  max-width: 360px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+
+  @media (min-width: 768px) {
+    max-width: 320px;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    background: transparent;
+    gap: var(--space-4);
+  }
+
+  &__logo {
+    // Shown only on mobile (card-centered layout)
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__header {
+    text-align: center;
+
+    @media (min-width: 768px) {
+      text-align: left;
+    }
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: var(--weight-semibold);
+    letter-spacing: -0.01em;
+    color: var(--color-text-primary);
+    line-height: var(--leading-tight);
+
+    @media (min-width: 768px) {
+      font-size: var(--text-lg);
+      letter-spacing: -0.015em;
+    }
+  }
+
+  &__subtitle {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    margin-top: 2px;
+  }
+}
+
+// ── Form internals ────────────────────────────────────────────────────
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+
+  &__actions {
+    margin-top: var(--space-1);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  &__footer {
+    text-align: center;
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+
+    a {
+      color: var(--color-text-primary);
+      font-weight: var(--weight-medium);
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+  }
+
+  &__check {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+
+    input[type='checkbox'] {
+      width: 13px;
+      height: 13px;
+      border: 1.5px solid var(--color-border);
+      border-radius: 3px;
+      appearance: none;
+      cursor: pointer;
+
+      &:checked {
+        background: var(--color-accent);
+        border-color: var(--color-accent);
+      }
+    }
+  }
+
+  &__link {
+    color: var(--color-text-secondary);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--color-text-primary);
+    }
+  }
+
+  &__legal {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--color-text-secondary);
+
+    input[type='checkbox'] {
+      width: 13px;
+      height: 13px;
+      margin-top: 1px;
+      border: 1.5px solid var(--color-border);
+      border-radius: 3px;
+      appearance: none;
+      flex-shrink: 0;
+      cursor: pointer;
+
+      &:checked {
+        background: var(--color-accent);
+        border-color: var(--color-accent);
+      }
+    }
+
+    a {
+      text-decoration: underline;
+      color: inherit;
+    }
+  }
+}
+
+.auth-server-error {
+  padding: var(--space-3);
+  background: var(--color-error-bg);
+  border-left: 3px solid var(--color-error);
+  border-radius: 0 var(--radius-input) var(--radius-input) 0;
+  font-size: var(--text-sm);
+  color: var(--color-error);
+  line-height: var(--leading-normal);
+}
