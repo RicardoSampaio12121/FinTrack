@@ -52,4 +52,23 @@
   // Z-index
   --z-overlay: 100;
   --z-modal: 200;
+
+  // Positive / negative sentiment
+  --color-positive: #2f7d5b;
+  --color-positive-bg: color-mix(in oklab, #2f7d5b 12%, transparent);
+  --color-negative: #c9582d;
+  --color-negative-bg: color-mix(in oklab, #c9582d 14%, transparent);
+
+  // App shell
+  --sidebar-width: 220px;
+
+  // Shadows
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-modal: 0 24px 60px -20px rgba(0, 0, 0, 0.3);
+
+  // Overlay
+  --overlay-bg: rgba(26, 24, 21, 0.45);
+
+  // Transitions
+  --transition-fast: 0.15s ease;
 }

@@ -3,10 +3,15 @@
   width: 100%;
 }
 
+.btn-host--sm {
+  width: auto;
+}
+
 .btn {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: var(--space-2);
   width: 100%;
   height: 42px;
   padding: 0 var(--space-5);
@@ -16,8 +21,11 @@
   font-size: 13.5px;
   font-weight: var(--weight-semibold);
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
   letter-spacing: 0.01em;
+  white-space: nowrap;
+
+  // ── Variants ──────────────────────────────────────────────────────────────
 
   &--primary {
     background: var(--color-accent);
@@ -40,6 +48,27 @@
     }
   }
 
+  &--outline {
+    background: transparent;
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+
+    &:hover:not(:disabled) {
+      background: var(--color-positive-bg);
+    }
+  }
+
+  // ── Sizes ─────────────────────────────────────────────────────────────────
+
+  &--sm {
+    height: 30px;
+    padding: 0 var(--space-3);
+    font-size: var(--text-sm);
+    border-radius: 6px;
+  }
+
+  // ── States ────────────────────────────────────────────────────────────────
+
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
@@ -57,6 +86,11 @@
   &--ghost &__spinner {
     border-color: rgba(107, 102, 96, 0.3);
     border-top-color: var(--color-text-secondary);
+  }
+
+  &--outline &__spinner {
+    border-color: rgba(47, 125, 91, 0.3);
+    border-top-color: var(--color-accent);
   }
 }
 

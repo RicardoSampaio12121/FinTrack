@@ -1,6 +1,6 @@
 <button
   class="btn"
-  [class]="'btn--' + variant()"
+  [class]="'btn--' + variant() + (size() === 'sm' ? ' btn--sm' : '')"
   [class.btn--loading]="loading()"
   [type]="type()"
   [disabled]="loading()"
